@@ -10,9 +10,8 @@ const INITIAL_DATA: User[] = [
 
 @Injectable()
 export class UserService {
-  private subject :  BehaviorSubject<User[]>;
   users$: Observable<User[]>;
-  
+  private subject :  BehaviorSubject<User[]>;  
     constructor() {
     this.subject = new BehaviorSubject<User[]>(INITIAL_DATA);
     this.users$ = this.subject.asObservable();
@@ -27,7 +26,7 @@ export class UserService {
 
   updateUser(user: User) {
     const users = this.subject.getValue();
-    const indexToUpdate = users.findIndex((u) => u.id == user.id);
+    const indexToUpdate = users.findIndex((u) => u.id === user.id);
     const newUsers = users.slice(0);
     newUsers[indexToUpdate] = {
       ...users[indexToUpdate],
@@ -38,7 +37,7 @@ export class UserService {
 
   removeUser(id: string) {
     const users = this.subject.getValue();
-    const indexToRemove = users.findIndex((u) => u.id == id);
+    const indexToRemove = users.findIndex((u) => u.id === id);
     const newUsers = users.slice(0);
     newUsers.splice(indexToRemove, 1);
     this.subject.next(newUsers);

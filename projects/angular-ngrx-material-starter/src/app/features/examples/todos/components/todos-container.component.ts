@@ -28,13 +28,16 @@ export class TodosContainerComponent implements OnInit {
   filter$: Observable<TodosFilter> | undefined;
   removeDoneDisabled$: Observable<boolean> = observableOf(false);
   newTodo = '';
-
+  
   constructor(
     public store: Store<State>,
     public snackBar: MatSnackBar,
     public translateService: TranslateService,
     private notificationService: NotificationService
   ) {}
+  get isAddTodoDisabled() {
+    return this.newTodo.length < 4;
+  }
 
   ngOnInit() {
     this.todos$ = this.store.pipe(select(selectTodos));
@@ -44,9 +47,7 @@ export class TodosContainerComponent implements OnInit {
     );
   }
 
-  get isAddTodoDisabled() {
-    return this.newTodo.length < 4;
-  }
+  
 
   onNewTodoChange(event: any) {
     this.newTodo = event.target.value;
