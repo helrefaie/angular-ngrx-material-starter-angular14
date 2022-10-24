@@ -38,6 +38,7 @@ npm-debug.log
 testem.log
 tslint-to-eslint-config.log
 /typings
+/.angular/cache
 
 # e2e
 /e2e/src/*.js
