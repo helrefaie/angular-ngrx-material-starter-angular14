@@ -4,10 +4,10 @@ import { actionBooksDeleteOne, actionBooksUpsertOne } from './books.actions';
 
 describe('BookReducer', () => {
   const TEST_INITIAL_STATE: BookState = {
-    ids: ['123'],
+    ids: ['b123'],
     entities: {
-      '123': {
-        id: '123',
+      'b123': {
+        id: 'b123',
         title: 'Reactive Programming with Angular and ngrx',
         author: 'Oren Farhi',
         description:
