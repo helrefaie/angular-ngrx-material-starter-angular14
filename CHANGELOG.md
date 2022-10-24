@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Update to V14
+@angular-devkit/build-angular             ~12.2.6  →   ~14.2.6
+ @angular-eslint/eslint-plugin             ~12.0.0  →   ~14.1.2
+ @angular-extensions/elements              ~12.6.0  →   ~14.1.0
+ @angular-extensions/model                 ^10.0.1  →   ^12.0.0
+ @angular/animations                       ~12.2.6  →   ~14.2.7
+ @angular/cdk                              ~12.2.6  →   ~14.2.5
+ @angular/cli                              ~12.2.6  →   ~14.2.6
+ @angular/common                           ~12.2.6  →   ~14.2.7
+ @angular/compiler                         ~12.2.6  →   ~14.2.7
+ @angular/compiler-cli                     ~12.2.6  →   ~14.2.7
+ @angular/core                             ~12.2.6  →   ~14.2.7
+ @angular/forms                            ~12.2.6  →   ~14.2.7
+ @angular/language-service                 ~12.2.6  →   ~14.2.7
+ @angular/material                         ~12.2.6  →   ~14.2.5
+ @angular/platform-browser                 ~12.2.6  →   ~14.2.7
+ @angular/platform-browser-dynamic         ~12.2.6  →   ~14.2.7
+ @angular/router                           ~12.2.6  →   ~14.2.7
+ @commitlint/cli                           ^11.0.0  →   ^17.1.2
+ @commitlint/config-conventional           ^11.0.0  →   ^17.1.0
+ @fortawesome/angular-fontawesome           ^0.7.0  →   ^0.11.1
+ @fortawesome/fontawesome-free             ^5.15.1  →    ^6.2.0
+ @fortawesome/fontawesome-svg-core         ^1.2.32  →    ^6.2.0
+ @fortawesome/free-brands-svg-icons        ^5.15.1  →    ^6.2.0
+ @fortawesome/free-solid-svg-icons         ^5.15.1  →    ^6.2.0
+ @ngrx/effects                             ~12.0.0  →   ~14.3.2
+ @ngrx/entity                              ~12.0.0  →   ~14.3.2
+ @ngrx/router-store                        ~12.0.0  →   ~14.3.2
+ @ngrx/store                               ~12.0.0  →   ~14.3.2
+ @ngrx/store-devtools                      ~12.0.0  →   ~14.3.2
+ @ngx-translate/core                       ^13.0.0  →   ^14.0.0
+ @ngx-translate/http-loader                 ^6.0.0  →    ^7.0.0
+ @types/jasmine                             ~3.6.0  →    ~4.3.0
+ @types/node                              ^14.14.7  →  ^18.11.4
+ @types/uuid                                ^8.3.0  →    ^8.3.4
+ @typescript-eslint/eslint-plugin           ^4.7.0  →   ^5.40.1
+ @typescript-eslint/eslint-plugin-tslint    ^4.7.0  →   ^5.40.1
+ @typescript-eslint/parser                  ^4.7.0  →   ^5.40.1
+ all-contributors-cli                      ^6.19.0  →   ^6.24.0
+ bootstrap                                  ^5.0.1  →    ^5.2.2
+ codelyzer                                  ^6.0.0  →    ^6.0.2
+ eslint                                    ^7.13.0  →   ^8.26.0
+ eslint-config-prettier                    ^6.15.0  →    ^8.5.0
+ eslint-plugin-import                      ^2.22.1  →   ^2.26.0
+ express                                   ^4.16.4  →   ^4.18.2
+ husky                                      ^4.3.0  →    ^8.0.1
+ jasmine-core                               ~3.6.0  →    ~4.4.0
+ jasmine-spec-reporter                      ~5.0.0  →    ~7.0.0
+ karma                                      ~6.3.2  →    ~6.4.1
+ karma-chrome-launcher                      ~3.1.0  →    ~3.1.1
+ karma-coverage                             ~2.0.3  →    ~2.2.0
+ karma-jasmine                              ~4.0.0  →    ~5.1.0
+ karma-jasmine-html-reporter                ^1.5.0  →    ^2.0.0
+ karma-spec-reporter                       ^0.0.32  →   ^0.0.34
+ postcss                                    ^8.3.6  →   ^8.4.18
+ prettier                                   ^2.1.2  →    ^2.7.1
+ pretty-quick                               ^3.1.0  →    ^3.1.3
+ rxjs                                       ~6.6.3  →    ~7.5.7
+ standard-version                           ^9.3.0  →    ^9.5.0
+ ts-node                                    ~9.0.0  →   ~10.9.1
+ tslib                                      ^2.2.0  →    ^2.4.0
+ typescript                                 ~4.2.4  →    ~4.8.4
+ uuid                                       ^8.3.1  →    ^9.0.0
+ webpack                                   ^5.51.1  →   ^5.74.0
+ webpack-bundle-analyzer                    ^4.1.0  →    ^4.6.1
+ zone.js                                   ~0.11.4  →   ~0.11.8
+
 ## [12.4.0](https://github.com/tomastrajan/angular-ngrx-material-starter/compare/v12.3.1...v12.4.0) (2021-10-04)
 
 ### Features
