@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ import { selectSelectedBook, selectAllBooks } from '../books.selectors';
 export class CrudComponent {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
-  bookFormGroup = this.fb.group(CrudComponent.createBook());
+  bookFormGroup : FormGroup;
   books$: Observable<Book[]> = this.store.pipe(select(selectAllBooks));
   selectedBook$: Observable<Book | undefined> = this.store.pipe(
     select(selectSelectedBook)
@@ -33,7 +33,10 @@ export class CrudComponent {
     public store: Store<State>,
     public fb: FormBuilder,
     private router: Router
-  ) {}
+  ) {
+
+    this.bookFormGroup=fb.group(CrudComponent.createBook());
+  }
 
   static createBook(): Book {
     return {
