@@ -137,6 +137,7 @@ export function httpLoaderFactory(http: HttpClient) {
     // 3rd party
     FontAwesomeModule,
     TranslateModule.forRoot({
+      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: httpLoaderFactory,

@@ -46,6 +46,7 @@ export function httpLoaderFactory(http: HttpClient) {
     ExamplesRoutingModule,
     StoreModule.forFeature(FEATURE_NAME, reducers),
     TranslateModule.forChild({
+      defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,
         useFactory: httpLoaderFactory,
