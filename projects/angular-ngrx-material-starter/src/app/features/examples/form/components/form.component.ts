@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { filter, take, tap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -24,7 +24,16 @@ import { State } from '../../examples.state';
 export class FormComponent implements OnInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
-  form = this.fb.group({
+  form : FormGroup;
+
+  formValueChanges$: Observable<Form> | undefined;
+
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<State>,
+    private translate: TranslateService,
+    private notificationService: NotificationService
+  ) {this.form= fb.group({
     autosave: false,
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
@@ -40,16 +49,7 @@ export class FormComponent implements OnInit {
     requestGift: [''],
     birthday: ['', [Validators.required]],
     rating: [0, Validators.required]
-  });
-
-  formValueChanges$: Observable<Form> | undefined;
-
-  constructor(
-    private fb: FormBuilder,
-    private store: Store<State>,
-    private translate: TranslateService,
-    private notificationService: NotificationService
-  ) {}
+  });}
 
   ngOnInit() {
     this.formValueChanges$ = this.form.valueChanges.pipe(
