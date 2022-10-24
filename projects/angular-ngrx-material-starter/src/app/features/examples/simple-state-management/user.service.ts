@@ -1,7 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import { Injectable } from '@angular/core';
-import { Model, ModelFactory } from '@angular-extensions/model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 const INITIAL_DATA: User[] = [
   { id: uuid(), username: 'rockets', name: 'Elon', surname: 'Musk' },
@@ -11,40 +10,40 @@ const INITIAL_DATA: User[] = [
 
 @Injectable()
 export class UserService {
+  private subject :  BehaviorSubject<User[]>;
   users$: Observable<User[]>;
-
-  private model: Model<User[]>;
-
-  constructor(private modelFactory: ModelFactory<User[]>) {
-    this.model = this.modelFactory.create([...INITIAL_DATA]);
-    this.users$ = this.model.data$;
+  
+    constructor() {
+    this.subject = new BehaviorSubject<User[]>(INITIAL_DATA);
+    this.users$ = this.subject.asObservable();
   }
 
   addUser(user: Partial<User>) {
-    const users = this.model.get();
-
-    users.push({ ...user, id: uuid() } as User);
-
-    this.model.set(users);
+    const users = this.subject.getValue();
+    const newUsers = users.slice(0);
+    newUsers.push({ ...user, id: uuid() } as User);
+    this.subject.next(newUsers);
   }
 
   updateUser(user: User) {
-    const users = this.model.get();
-
-    const indexToUpdate = users.findIndex((u) => u.id === user.id);
-    users[indexToUpdate] = user;
-
-    this.model.set(users);
+    const users = this.subject.getValue();
+    const indexToUpdate = users.findIndex((u) => u.id == user.id);
+    const newUsers = users.slice(0);
+    newUsers[indexToUpdate] = {
+      ...users[indexToUpdate],
+      ...user
+    };
+    this.subject.next(newUsers);
   }
 
   removeUser(id: string) {
-    const users = this.model.get();
-
-    const indexToRemove = users.findIndex((user) => user.id === id);
-    users.splice(indexToRemove, 1);
-
-    this.model.set(users);
+    const users = this.subject.getValue();
+    const indexToRemove = users.findIndex((u) => u.id == id);
+    const newUsers = users.slice(0);
+    newUsers.splice(indexToRemove, 1);
+    this.subject.next(newUsers);
   }
+
 }
 
 export interface User {
