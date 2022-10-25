@@ -15,7 +15,7 @@ export const bookAdapter: EntityAdapter<Book> = createEntityAdapter<Book>({
 export const initialState: BookState = bookAdapter.getInitialState({
   ids: ['b123'],
   entities: {
-    'b123': {
+    b123: {
       id: 'b123',
       title: 'Reactive Programming with Angular and ngrx',
       author: 'Oren Farhi',

@@ -13,29 +13,27 @@ describe('ExamplesComponent', () => {
   let component: ExamplesComponent;
   let fixture: ComponentFixture<ExamplesComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          HttpClientTestingModule,
-          SharedModule,
-          NoopAnimationsModule,
-          RouterTestingModule,
-          TranslateModule.forRoot()
-        ],
-        providers: [
-          provideMockStore({
-            initialState: {
-              auth: {
-                isAuthenticated: false
-              }
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        SharedModule,
+        NoopAnimationsModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        provideMockStore({
+          initialState: {
+            auth: {
+              isAuthenticated: false
             }
-          })
-        ],
-        declarations: [ExamplesComponent]
-      }).compileComponents();
-    })
-  );
+          }
+        })
+      ],
+      declarations: [ExamplesComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ExamplesComponent);

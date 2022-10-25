@@ -10,18 +10,12 @@ describe('AuthenticatedComponent', () => {
   let component: AuthenticatedComponent;
   let fixture: ComponentFixture<AuthenticatedComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          SharedModule,
-          NoopAnimationsModule,
-          TranslateModule.forRoot()
-        ],
-        declarations: [AuthenticatedComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedModule, NoopAnimationsModule, TranslateModule.forRoot()],
+      declarations: [AuthenticatedComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AuthenticatedComponent);

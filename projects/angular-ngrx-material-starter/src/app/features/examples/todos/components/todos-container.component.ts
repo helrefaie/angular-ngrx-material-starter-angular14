@@ -28,7 +28,7 @@ export class TodosContainerComponent implements OnInit {
   filter$: Observable<TodosFilter> | undefined;
   removeDoneDisabled$: Observable<boolean> = observableOf(false);
   newTodo = '';
-  
+
   constructor(
     public store: Store<State>,
     public snackBar: MatSnackBar,
@@ -46,8 +46,6 @@ export class TodosContainerComponent implements OnInit {
       select(selectRemoveDoneTodosDisabled)
     );
   }
-
-  
 
   onNewTodoChange(event: any) {
     this.newTodo = event.target.value;

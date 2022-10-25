@@ -10,18 +10,12 @@ describe('FeatureListComponent', () => {
   let component: FeatureListComponent;
   let fixture: ComponentFixture<FeatureListComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          SharedModule,
-          NoopAnimationsModule,
-          TranslateModule.forRoot()
-        ],
-        declarations: [FeatureListComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [SharedModule, NoopAnimationsModule, TranslateModule.forRoot()],
+      declarations: [FeatureListComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FeatureListComponent);

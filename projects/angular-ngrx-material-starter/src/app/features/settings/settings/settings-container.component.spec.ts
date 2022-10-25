@@ -36,31 +36,29 @@ describe('SettingsComponent', () => {
   const getSelectOptions = () =>
     fixture.debugElement.queryAll(By.css('mat-option'));
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          FontAwesomeModule,
-          SharedModule,
-          NoopAnimationsModule,
-          TranslateModule.forRoot()
-        ],
-        providers: [provideMockStore()],
-        declarations: [SettingsContainerComponent]
-      }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        FontAwesomeModule,
+        SharedModule,
+        NoopAnimationsModule,
+        TranslateModule.forRoot()
+      ],
+      providers: [provideMockStore()],
+      declarations: [SettingsContainerComponent]
+    }).compileComponents();
 
-      TestBed.inject(FaIconLibrary).addIcons(faBars);
+    TestBed.inject(FaIconLibrary).addIcons(faBars);
 
-      store = TestBed.inject(MockStore);
-      mockSelectSettings = store.overrideSelector(
-        selectSettings,
-        {} as SettingsState
-      );
-      fixture = TestBed.createComponent(SettingsContainerComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    })
-  );
+    store = TestBed.inject(MockStore);
+    mockSelectSettings = store.overrideSelector(
+      selectSettings,
+      {} as SettingsState
+    );
+    fixture = TestBed.createComponent(SettingsContainerComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
 
   it('should dispatch change sticky header on sticky header toggle', () => {
     dispatchSpy = spyOn(store, 'dispatch');

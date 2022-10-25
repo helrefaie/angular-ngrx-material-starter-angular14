@@ -18,7 +18,7 @@ describe('BooksEffects', () => {
   describe('persistBooks', () => {
     const booksState: BookState = {
       entities: {
-        'b1': {
+        b1: {
           author: 'Author',
           description: 'Description',
           id: '1',

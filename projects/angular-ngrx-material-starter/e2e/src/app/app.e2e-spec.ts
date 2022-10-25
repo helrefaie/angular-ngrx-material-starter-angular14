@@ -14,7 +14,9 @@ describe('App', () => {
 
   it('should display current year in the footer', () => {
     page.navigateTo();
-    expect<any>(page.getCurrentYear()).toEqual(new Date().getFullYear().toString());
+    expect<any>(page.getCurrentYear()).toEqual(
+      new Date().getFullYear().toString()
+    );
   });
 
   it('should have "About", "Features", "Examples" menus', () => {

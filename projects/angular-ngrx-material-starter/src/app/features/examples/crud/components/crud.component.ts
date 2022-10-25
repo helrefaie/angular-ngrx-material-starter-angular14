@@ -21,7 +21,7 @@ import { selectSelectedBook, selectAllBooks } from '../books.selectors';
 export class CrudComponent {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
-  bookFormGroup : FormGroup;
+  bookFormGroup: FormGroup;
   books$: Observable<Book[]> = this.store.pipe(select(selectAllBooks));
   selectedBook$: Observable<Book | undefined> = this.store.pipe(
     select(selectSelectedBook)
@@ -34,8 +34,7 @@ export class CrudComponent {
     public fb: FormBuilder,
     private router: Router
   ) {
-
-    this.bookFormGroup=fb.group(CrudComponent.createBook());
+    this.bookFormGroup = fb.group(CrudComponent.createBook());
   }
 
   static createBook(): Book {

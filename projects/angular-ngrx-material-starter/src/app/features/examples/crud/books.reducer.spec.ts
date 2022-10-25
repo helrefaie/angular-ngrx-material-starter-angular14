@@ -6,7 +6,7 @@ describe('BookReducer', () => {
   const TEST_INITIAL_STATE: BookState = {
     ids: ['b123'],
     entities: {
-      'b123': {
+      b123: {
         id: 'b123',
         title: 'Reactive Programming with Angular and ngrx',
         author: 'Oren Farhi',

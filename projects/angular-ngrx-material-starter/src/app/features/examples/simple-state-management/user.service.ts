@@ -11,8 +11,8 @@ const INITIAL_DATA: User[] = [
 @Injectable()
 export class UserService {
   users$: Observable<User[]>;
-  private subject :  BehaviorSubject<User[]>;  
-    constructor() {
+  private subject: BehaviorSubject<User[]>;
+  constructor() {
     this.subject = new BehaviorSubject<User[]>(INITIAL_DATA);
     this.users$ = this.subject.asObservable();
   }
@@ -42,7 +42,6 @@ export class UserService {
     newUsers.splice(indexToRemove, 1);
     this.subject.next(newUsers);
   }
-
 }
 
 export interface User {

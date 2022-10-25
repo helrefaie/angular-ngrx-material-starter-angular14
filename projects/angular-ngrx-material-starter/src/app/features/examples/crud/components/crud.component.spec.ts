@@ -14,26 +14,24 @@ describe('CrudComponent', () => {
   let fixture: ComponentFixture<CrudComponent>;
   let store: MockStore;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          SharedModule,
-          NoopAnimationsModule,
-          RouterTestingModule,
-          TranslateModule.forRoot()
-        ],
-        providers: [provideMockStore()],
-        declarations: [CrudComponent]
-      }).compileComponents();
-      store = TestBed.inject(MockStore);
-      store.overrideSelector(selectAllBooks, []);
-      store.overrideSelector(selectSelectedBook, undefined);
-      fixture = TestBed.createComponent(CrudComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        SharedModule,
+        NoopAnimationsModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
+      ],
+      providers: [provideMockStore()],
+      declarations: [CrudComponent]
+    }).compileComponents();
+    store = TestBed.inject(MockStore);
+    store.overrideSelector(selectAllBooks, []);
+    store.overrideSelector(selectSelectedBook, undefined);
+    fixture = TestBed.createComponent(CrudComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
   it('should create', () => {
     expect(component).toBeTruthy();
   });

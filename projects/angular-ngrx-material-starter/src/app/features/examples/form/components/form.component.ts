@@ -24,7 +24,7 @@ import { State } from '../../examples.state';
 export class FormComponent implements OnInit {
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
 
-  form : FormGroup;
+  form: FormGroup;
 
   formValueChanges$: Observable<Form> | undefined;
 
@@ -33,23 +33,25 @@ export class FormComponent implements OnInit {
     private store: Store<State>,
     private translate: TranslateService,
     private notificationService: NotificationService
-  ) {this.form= fb.group({
-    autosave: false,
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]],
-    email: ['', [Validators.required, Validators.email]],
-    description: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(10),
-        Validators.maxLength(1000)
-      ]
-    ],
-    requestGift: [''],
-    birthday: ['', [Validators.required]],
-    rating: [0, Validators.required]
-  });}
+  ) {
+    this.form = fb.group({
+      autosave: false,
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      description: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(1000)
+        ]
+      ],
+      requestGift: [''],
+      birthday: ['', [Validators.required]],
+      rating: [0, Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.formValueChanges$ = this.form.valueChanges.pipe(

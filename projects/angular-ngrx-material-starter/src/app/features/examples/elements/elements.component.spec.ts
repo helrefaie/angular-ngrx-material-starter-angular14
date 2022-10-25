@@ -12,20 +12,18 @@ describe('ElementsComponent', () => {
   let component: ElementsComponent;
   let fixture: ComponentFixture<ElementsComponent>;
 
-  beforeEach(
-    waitForAsync(() => {
-      TestBed.configureTestingModule({
-        schemas: [CUSTOM_ELEMENTS_SCHEMA],
-        imports: [
-          SharedModule,
-          NoopAnimationsModule,
-          TranslateModule.forRoot(),
-          LazyElementsModule
-        ],
-        declarations: [ElementsComponent]
-      }).compileComponents();
-    })
-  );
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [
+        SharedModule,
+        NoopAnimationsModule,
+        TranslateModule.forRoot(),
+        LazyElementsModule
+      ],
+      declarations: [ElementsComponent]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ElementsComponent);
