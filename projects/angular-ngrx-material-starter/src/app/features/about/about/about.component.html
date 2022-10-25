@@ -2,6 +2,11 @@
   <div class="gradient">
     <div class="container">
       <h1>{{ 'anms.title.long' | translate }}</h1>
+      <h2 class="d-flex justify-content-center">{{ 'Updated to Angular '+ angularVersion }}</h2>
+      <h5 class="d-flex justify-content-center">based on: </h5>
+      <a class="d-flex justify-content-center" href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">https://github.com/tomastrajan/angular-ngrx-material-starter</a>
+      
+      <span class="d-flex justify-content-center">by: <a href="https://github.com/tomastrajan" target="_blank">tomastrajan</a></span>
       <div class="actions">
         <a [ngClass]="routeAnimationsElements" mat-raised-button class="actions-main" color="primary" routerLink="../feature-list">
           {{ 'anms.menu.features' | translate }}
@@ -11,9 +16,6 @@
         </a>
         <a mat-raised-button class="actions-main" color="warn" routerLink="../settings" [ngClass]="routeAnimationsElements">
           {{ 'anms.about.change-theme' | translate }}
-        </a>
-        <a href="https://www.buymeacoffee.com/tomastrajan" target="_blank">
-          <img [ngClass]="routeAnimationsElements" src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" height="42">
         </a>
         <br>
         <span [ngClass]="routeAnimationsElements">{{ 'anms.about.check-blogs' | translate }}</span>
@@ -54,25 +56,13 @@
       <div class="get-started" [ngClass]="routeAnimationsElements">
         <h2 rtl>{{ 'anms.about.get-started' | translate }}</h2>
         <code>git clone
-          https://github.com/tomastrajan/angular-ngrx-material-starter.git
+          https://github.com/helrefaie/angular-ngrx-material-starter-angular14.git
           new-project</code><br>
         <code>cd new-project</code><br>
         <code>npm install</code><br>
         <code>npm start</code>
       </div>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div class="follow-releases" [ngClass]="routeAnimationsElements">
-    <h2 rtl>{{ 'anms.about.get-notified.title' | translate }}</h2>
-    <p rtl>
-      {{ 'anms.about.get-notified.follow' | translate }} <a href="https://www.twitter.com/releasebutler" rel="noopener noreferrer" target="_blank">Release
-        Butler</a>
-      {{ 'anms.about.get-notified.description' | translate }}
-    </p>
-
-    <img [src]="releaseButler" alt="Release Butler tweet example">
   </div>
 </div>
 <div class="container" rtl>
@@ -408,6 +398,11 @@
   <a class="contributor" href="https://github.com/shady-abdelhamid" rel="noopener noreferrer" target="_blank">
     <img alt src="https://avatars.githubusercontent.com/u/8029319?v=4">
     <span>Shady</span>
+  </a>
+
+  <a class="contributor" href="https://github.com/helrefaie" rel="noopener noreferrer" target="_blank">
+    <img alt src="https://avatars.githubusercontent.com/u/66576828?v=4">
+    <span>Haiham Elrefaie</span>
   </a>
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
