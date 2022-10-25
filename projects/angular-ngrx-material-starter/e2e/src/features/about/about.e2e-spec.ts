@@ -8,7 +8,7 @@ describe('About Page', () => {
 
   it('should display main heading', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('ANGULAR NGRX MATERIAL STARTER');
+    expect<any>(page.getParagraphText()).toEqual('ANGULAR NGRX MATERIAL STARTER');
   });
 
   it('should display "Geting Started" section', () => {
@@ -25,7 +25,7 @@ describe('About Page', () => {
       .getActionButton(0)
       .click()
       .then(() => {
-        expect(getCurrentRouteUrl()).toBe('feature-list');
+        expect<any>(getCurrentRouteUrl()).toBe('feature-list');
       });
   });
 });

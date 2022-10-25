@@ -13,7 +13,7 @@ export class AboutPage {
     return element(by.css('.get-started'));
   }
 
-  getActionButton(idx) {
+  getActionButton(idx: any) {
     return element.all(by.css('.actions a')).get(idx);
   }
 }

@@ -15,8 +15,8 @@ describe('Todos Page', () => {
 
     browser.wait(EC.presenceOf(page.getResults().get(3)), 5000);
 
-    expect(page.getResults().count()).toBe(4);
-    expect(
+    expect<any>(page.getResults().count()).toBe(4);
+    expect<any>(
       page
         .getResults()
         .get(0)
