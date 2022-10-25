@@ -74,19 +74,19 @@ export const features: Feature[] = [
     documentation: 'http://www.ngx-translate.com/'
   },
   {
-    name: 'Font Awesome 5',
+    name: 'Font Awesome',
     version: env.versions.fontAwesome,
     description: 'anms.features.fontawesome',
     github: 'https://github.com/FortAwesome/Font-Awesome',
     documentation: 'https://fontawesome.com/icons'
   },
-  {
-    name: 'Cypress',
-    version: env.versions.cypress,
-    description: 'anms.features.cypress',
-    github: 'https://github.com/cypress-io/cypress',
-    documentation: 'https://www.cypress.io/'
-  },
+  // {
+  //   name: 'Cypress',
+  //   version: env.versions.cypress,
+  //   description: 'anms.features.cypress',
+  //   github: 'https://github.com/cypress-io/cypress',
+  //   documentation: 'https://www.cypress.io/'
+  // },
   {
     name: 'anms.features.themes.title',
     description: 'anms.features.themes.description',
