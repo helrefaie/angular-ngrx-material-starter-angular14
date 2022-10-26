@@ -89,7 +89,8 @@
       </ng-container>
     </div>
     <div class="col-md-12 col-lg-6" [ngClass]="routeAnimationsElements">
-      
+      <p>{{ 'anms.examples.simple-state-management.text1' | translate }}</p>
+      <p>{{ 'anms.examples.simple-state-management.text2' | translate }}</p>   
       <h2>Note</h2>
       <p>Original implementation was done using @angular-extensions/model which causes conflict with Angiular/CLI V14 as it has Angular/CLI 12 as dependencty, so
         this example is rewritten using RxJs BehaviorSubject & LocalStorage instead.<br/><br />
@@ -101,9 +102,9 @@
           href="https://www.learnrxjs.io/learn-rxjs/subjects/behaviorsubject" target="_blank">link</a><br/>
           - You can learn more about LocalStorage from this <a href="https://www.w3schools.com/html/html5_webstorage.asp" target="_blank">link</a>
            </p>
-          <span><b>Reset Store: </b>Resets LocalStorage & BehaviorSubject to the initial value list of 3 users</span><br/><br/>
-          <span><b>Clear Store: </b>Clears the browser LocalStorage & the BehaviorSubject</span><br/><br/>
-          <span><b>Add User: </b>Add user to the BehaviorSubject & Updates LocalStorage</span>
+          <p><b>Reset Store: </b>Resets LocalStorage & BehaviorSubject to the initial value list of 3 users</p>
+          <p><b>Clear Store: </b>Clears the browser LocalStorage & the BehaviorSubject</p>
+          <p><b>Add User: </b>Add user to the BehaviorSubject & Updates LocalStorage</p>
 
 
     </div>
