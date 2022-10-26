@@ -75,7 +75,6 @@ export class AppComponent implements OnInit {
     this.language$ = this.store.pipe(select(selectSettingsLanguage));
     this.theme$ = this.store.pipe(select(selectEffectiveTheme));
     this.userStore.init();
-    console.log('user store initialized');
   }
 
   onLoginClick() {
