@@ -75,7 +75,7 @@ export function httpLoaderFactory(http: HttpClient) {
     UserComponent,
     ElementsComponent
   ],
-  providers: [StockMarketService, UserService]
+  providers: [StockMarketService]
 })
 export class ExamplesModule {
   constructor() {}

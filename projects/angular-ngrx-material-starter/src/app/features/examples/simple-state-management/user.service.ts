@@ -8,20 +8,46 @@ const INITIAL_DATA: User[] = [
   { id: uuid(), username: 'philosophy', name: 'Yuval', surname: 'Harari' }
 ];
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
-  users$: Observable<User[]>;
-  private subject: BehaviorSubject<User[]>;
-  constructor() {
-    this.subject = new BehaviorSubject<User[]>(INITIAL_DATA);
-    this.users$ = this.subject.asObservable();
-  }
+  private subject = new BehaviorSubject<User[]>([]);
+  users$ : Observable<User[]>= this.subject.asObservable();
+
+  init() {
+    if(localStorage.getItem('usersList') !=null)
+    {
+    if(localStorage.getItem('usersList') != "")
+    this.subject.next(JSON.parse( <string>localStorage.getItem('usersList')));
+    }
+    else{
+      this.subject.next(INITIAL_DATA);
+      this.updateLocalStore();
+    }
+}
+private updateLocalStore()
+{
+  localStorage.setItem('usersList',JSON.stringify( this.subject.value));
+
+}
+ clear()
+{
+  localStorage.setItem('usersList',"");
+  this.subject.next([]);
+}
+reset()
+{
+  this.subject.next(INITIAL_DATA);
+  this.updateLocalStore();
+}
 
   addUser(user: Partial<User>) {
     const users = this.subject.getValue();
     const newUsers = users.slice(0);
     newUsers.push({ ...user, id: uuid() } as User);
     this.subject.next(newUsers);
+    this.updateLocalStore();
   }
 
   updateUser(user: User) {
@@ -33,6 +59,7 @@ export class UserService {
       ...user
     };
     this.subject.next(newUsers);
+    this.updateLocalStore();
   }
 
   removeUser(id: string) {
@@ -41,6 +68,7 @@ export class UserService {
     const newUsers = users.slice(0);
     newUsers.splice(indexToRemove, 1);
     this.subject.next(newUsers);
+    this.updateLocalStore();
   }
 }
 

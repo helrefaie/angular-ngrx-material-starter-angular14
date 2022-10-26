@@ -21,6 +21,7 @@ import {
   actionSettingsChangeAnimationsPageDisabled,
   actionSettingsChangeLanguage
 } from '../core/settings/settings.actions';
+import { UserService } from '../features/examples/simple-state-management/user.service';
 
 @Component({
   selector: 'anms-root',
@@ -52,7 +53,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    private storageService: LocalStorageService
+    private storageService: LocalStorageService,
+    private userStore:UserService
   ) {}
 
   private static isIEorEdgeOrSafari() {
@@ -68,11 +70,12 @@ export class AppComponent implements OnInit {
         })
       );
     }
-
     this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
     this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
     this.language$ = this.store.pipe(select(selectSettingsLanguage));
     this.theme$ = this.store.pipe(select(selectEffectiveTheme));
+    this.userStore.init();
+    console.log('user store initialized');
   }
 
   onLoginClick() {
@@ -88,4 +91,5 @@ export class AppComponent implements OnInit {
       actionSettingsChangeLanguage({ language: event.value })
     );
   }
+  
 }

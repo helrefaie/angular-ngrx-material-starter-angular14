@@ -19,15 +19,19 @@ import { User, UserService } from '../user.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent implements OnInit {
+
   routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
   userForm: FormGroup = new FormGroup({});
   users$: Observable<User[]> | undefined;
   isEdit$: Observable<{ value: boolean }> | undefined;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(private fb: FormBuilder, private userStore: UserService) {
+  }
 
   ngOnInit() {
-    this.users$ = this.userService.users$;
+    
+    this.users$ = this.userStore.users$;
+
 
     this.userForm = this.fb.group({
       id: '',
@@ -43,7 +47,7 @@ export class UserComponent implements OnInit {
   }
 
   removeUser(id: string) {
-    this.userService.removeUser(id);
+    this.userStore.removeUser(id);
   }
 
   editUser(user: User) {
@@ -54,9 +58,9 @@ export class UserComponent implements OnInit {
     if (this.userForm?.valid) {
       const data = this.userForm.getRawValue();
       if (data.id && data.id.length) {
-        this.userService.updateUser(data);
+        this.userStore.updateUser(data);
       } else {
-        this.userService.addUser({ ...data });
+        this.userStore.addUser({ ...data });
       }
       userFormRef.resetForm();
       this.userForm.reset();
@@ -66,4 +70,10 @@ export class UserComponent implements OnInit {
   trackByUserId(index: number, user: User): string {
     return user.id;
   }
+  clear() {
+    this.userStore.clear();
+    }
+  reset() {
+      this.userStore.reset();
+    }
 }
