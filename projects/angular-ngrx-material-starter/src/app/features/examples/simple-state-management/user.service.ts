@@ -1,5 +1,6 @@
+import { LocalStorageService } from './../../../core/local-storage/local-storage.service';
 import { v4 as uuid } from 'uuid';
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 const INITIAL_DATA: User[] = [
@@ -13,41 +14,38 @@ const INITIAL_DATA: User[] = [
 })
 export class UserService {
   private subject = new BehaviorSubject<User[]>([]);
-  users$ : Observable<User[]>= this.subject.asObservable();
-
+  users$: Observable<User[]> = this.subject.asObservable();
+  key = 'usersList3';
+  constructor(private localStorageService: LocalStorageService) { }
   init() {
-    if(localStorage.getItem('usersList') !=null)
+    
+    if(JSON.stringify(this.localStorageService.getItem(this.key)) != "{}") // check if not initial loading 
     {
-    if(localStorage.getItem('usersList') != "")
-    this.subject.next(JSON.parse( <string>localStorage.getItem('usersList')));
+      this.subject.next(this.localStorageService.getItem(this.key));
     }
     else{
       this.subject.next(INITIAL_DATA);
-      this.updateLocalStore();
+      this.updateLocalStorage();
     }
-}
-private updateLocalStore()
-{
-  localStorage.setItem('usersList',JSON.stringify( this.subject.value));
-
-}
- clear()
-{
-  localStorage.setItem('usersList',"");
-  this.subject.next([]);
-}
-reset()
-{
-  this.subject.next(INITIAL_DATA);
-  this.updateLocalStore();
-}
+  }
+  private updateLocalStorage() {
+    this.localStorageService.setItem(this.key, this.subject.value)
+  }
+  clear() {
+    this.localStorageService.setItem(this.key,'');
+    this.subject.next([]);
+  }
+  reset() {
+    this.subject.next(INITIAL_DATA);
+    this.updateLocalStorage();
+  }
 
   addUser(user: Partial<User>) {
     const users = this.subject.getValue();
     const newUsers = users.slice(0);
     newUsers.push({ ...user, id: uuid() } as User);
     this.subject.next(newUsers);
-    this.updateLocalStore();
+    this.updateLocalStorage();
   }
 
   updateUser(user: User) {
@@ -59,7 +57,7 @@ reset()
       ...user
     };
     this.subject.next(newUsers);
-    this.updateLocalStore();
+    this.updateLocalStorage();
   }
 
   removeUser(id: string) {
@@ -68,7 +66,7 @@ reset()
     const newUsers = users.slice(0);
     newUsers.splice(indexToRemove, 1);
     this.subject.next(newUsers);
-    this.updateLocalStore();
+    this.updateLocalStorage();
   }
 }
 

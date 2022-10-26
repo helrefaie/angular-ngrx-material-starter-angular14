@@ -8,21 +8,19 @@
   </div>
   <div class="row" [ngClass]="routeAnimationsElements" rtl>
     <div class="col-md-12 col-lg-6">
+      <div class="btn-group d-flex justify-content-end m-3">
+
+        <button type="button" class="m-1" mat-raised-button color="accent" [ngClass]="routeAnimationsElements"
+          (click)="reset()">
+          Reset Store
+        </button>
+        <button type="button" class="m-1" mat-raised-button [ngClass]="routeAnimationsElements"
+          (click)="clear()">
+          Clear Store
+        </button>
+        
+      </div>
       <ng-container *ngIf="users$ | async as users">
-            <div class="btn-group d-flex justify-content-end m-3">
-
-              <button type="button" class="m-1" mat-raised-button color="accent" [ngClass]="routeAnimationsElements"
-                (click)="reset()">
-                Reset Store
-              </button>
-              <button type="button" class="m-1" mat-raised-button [ngClass]="routeAnimationsElements"
-                (click)="clear()">
-                Clear Store
-              </button>
-              
-            </div>
-          
-
 
         <mat-card *ngFor="let user of users; trackBy: trackByUserId" [ngClass]="routeAnimationsElements">
           <mat-card-header>
